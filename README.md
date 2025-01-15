@@ -5,9 +5,9 @@ The Project is Curretly in Development, and would feature functionalities includ
 Built Using [Next.js](https://nextjs.org) and [Shadcn UI](https://ui.shadcn.com/)
 
 ### versions used are: 
-node:   20.15.1
-nextjs: 15.0.3
-shadcn: 2.1.6
+- node:   20.15.1
+- nextjs: 15.0.3
+- shadcn: 2.1.6
 
 ## Getting Started
 First, run the development server:
