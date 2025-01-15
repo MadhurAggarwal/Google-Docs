@@ -1,17 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is My Google-Docs Repo
+The Project is Curretly in Development, and would feature functionalities including Multi-User Support, Concurrent Editing, Templates for Docs and more.
+
+Built Using [Next.js](https://nextjs.org) and [Shadcn UI](https://ui.shadcn.com/)
+
+### versions used are: 
+node:   20.15.1
+nextjs: 15.0.3
+shadcn: 2.1.6
 
 ## Getting Started
-
 First, run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
