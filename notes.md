@@ -11,4 +11,5 @@ Also, the layout doesnt re-render
 
 ### Self Notes
 use ctrl+shift+p and developer:reload window 
+<br>
 .next folder can be deleted anytime
