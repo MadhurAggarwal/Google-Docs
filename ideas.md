@@ -8,6 +8,8 @@
 - NITJ Lab Template
 - Resume Template
 - Calendar Template
+- Card Element, Sticky Notes-style elements
+- Charts/ Bargraph/ Linegraph etc
 
 ### Self-Creatable Styles
 - Create, Reuse, Sell Custom Styles
@@ -37,3 +39,7 @@
 ### Dictation
 - Text To Speech
 - Language Conversion
+
+## Access Constrol
+### Roles
+- define user roles, for View Only, Code Run & AI Anaysis Only, Edit with review requests, Owner
