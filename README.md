@@ -11,7 +11,8 @@ Built Using [Next.js](https://nextjs.org) and [Shadcn UI](https://ui.shadcn.com/
 - tiptap: 2.10.2
 
 ## Project Features
-![image](https://github.com/user-attachments/assets/5a042ed4-37ab-41a7-b647-935741830109)
+![image](https://github.com/user-attachments/assets/ec2b1ccd-4f98-4abe-b0b0-ac3f7ee0ee0f)
+
 ### Lists
 Type - to begin an unordered list.
 <br>
