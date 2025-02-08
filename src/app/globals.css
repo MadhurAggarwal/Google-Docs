@@ -86,3 +86,61 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.tiptap {
+  /* List styles */
+  ul, 
+  ol {
+    padding: 0 1rem;
+    margin: 0.5rem 1rem 0.5rem 0.4rem;
+  }
+
+  ul li{
+    list-style-type: disc;
+    p {
+      margin-top: 0.15em;
+      margin-bottom: 0.15em;
+    }
+  }
+
+  ol li{
+    list-style-type: decimal;
+    p{
+      margin-top: 0.15em;
+      margin-bottom: 0.15em;
+    }
+  }
+
+
+  /* Task list specific styles */
+  ul[data-type="taskList"] {
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+
+    li {
+      align-items: center;
+      display: flex;
+
+      > label {
+        display: flex;
+        flex: 0 0 auto;
+        margin-right: 0.5rem;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      > div {
+        flex: 0.1 0.1 auto;
+      }
+    }
+
+    input[type="checkbox"] {
+      cursor: pointer;
+    }
+
+    ul[data-type="taskList"] {
+      margin: 0;
+    }
+  }
+}

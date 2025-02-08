@@ -9,6 +9,12 @@ Built Using [Next.js](https://nextjs.org) and [Shadcn UI](https://ui.shadcn.com/
 - nextjs: 15.0.3
 - shadcn: 2.1.6
 
+## Project Features
+### Lists
+Type - to begin an unordered list.
+<br>
+Type 1. to begin an ordered list.
+
 ## Getting Started
 First, run the development server:
 
