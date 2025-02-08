@@ -3,6 +3,12 @@
 import StarterKit from '@tiptap/starter-kit'
 import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
+import Table from '@tiptap/extension-table'
+import TableCell from '@tiptap/extension-table-cell'
+import TableHeader from '@tiptap/extension-table-header'
+import TableRow from '@tiptap/extension-table-row'
+import Image from '@tiptap/extension-image'
+import ImageResize from "tiptap-extension-resize-image";
 import { useEditor, EditorContent } from '@tiptap/react'
 
 export const Editor = () => {
@@ -15,12 +21,35 @@ export const Editor = () => {
         },
         extensions: [
             StarterKit,
+            Image,
+            ImageResize,
             TaskList,
             TaskItem.configure({
                 nested: true,
             }),
+            Table.configure({
+                resizable: true,
+              }),
+              TableRow,
+              TableHeader,
+              TableCell,
         ],
-        content: '<p>Hello World! 🌎️ This is Madhur Aggarwal😉, Nice to meet you!</p>',
+        content: `
+        <p>Hello World! 🌎️ This is Madhur Aggarwal😉, Nice to meet you!</p>
+        <table>
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <th colspan="2">Work Experience</th>
+            </tr>
+            <tr>
+              <td>Madhur Aggarwal</td>
+              <td>Microsoft</td>
+              <td>Juspay</td>
+            </tr>
+          </tbody>
+        </table>
+        `,
       })
 
     return (
