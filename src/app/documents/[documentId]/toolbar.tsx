@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from '@/lib/utils';
-import { BoldIcon, ItalicIcon, LucideIcon, PrinterIcon, Redo2Icon, SpellCheckIcon, UnderlineIcon, Undo2Icon } from 'lucide-react';
+import { BoldIcon, ItalicIcon, LucideIcon, MessageSquarePlusIcon, PrinterIcon, Redo2Icon, SpellCheckIcon, UnderlineIcon, Undo2Icon } from 'lucide-react';
 import { useEditorStore } from '@/store/use-editor-store';
 import { Separator } from '@/components/ui/separator';
 interface ToolbarButtonProps {
@@ -86,6 +86,14 @@ export const Toolbar = () => {
                 onClick: () => editor?.chain().focus().toggleUnderline().run(),
             },
         ],
+        [
+            {
+                label: 'Comment',
+                icon: MessageSquarePlusIcon,
+                onClick: () => console.log('TODO: Comment'),
+                isActive: false, //TODO
+            },
+        ],
     ];
 
     return ( 
@@ -93,6 +101,7 @@ export const Toolbar = () => {
             {sections[0].map((item) => (
                 <ToolbarButton key={item.label} {...item}/>
             ))}
+            
             <Separator orientation='vertical' className='h-6 bg-neutral-300'/>
             {/* TODO: Font Family */}
             <Separator orientation='vertical' className='h-6 bg-neutral-300'/>
@@ -100,9 +109,26 @@ export const Toolbar = () => {
             <Separator orientation='vertical' className='h-6 bg-neutral-300'/>
             {/* TODO: Font Size */}
             <Separator orientation='vertical' className='h-6 bg-neutral-300'/>
+
             {sections[1].map((item) => (
                 <ToolbarButton key={item.label} {...item}/>
             ))}
+
+            {/* TODO: Text Color */}
+            {/* TODO: Highlight Color */}
+
+            <Separator orientation='vertical' className='h-6 bg-neutral-300'/>
+
+            {/* TODO: Link */}
+            {/* TODO: Image */}
+            {/* TODO: Align */}
+            {/* TODO: Line Height */}
+            {/* TODO: List */}
+
+            {sections[2].map((item) => (
+                <ToolbarButton key={item.label} {...item}/>
+            ))}
+
         </div> 
     );
 };
