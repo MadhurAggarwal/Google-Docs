@@ -1,23 +1,26 @@
 "use client";
 
 import { cn } from '@/lib/utils';
-import { LucideIcon, Undo2Icon } from 'lucide-react';
+import { BoldIcon, LucideBold, LucideIcon, PrinterIcon, Redo2Icon, SpellCheckIcon, Undo2Icon } from 'lucide-react';
 import { useEditorStore } from '@/store/use-editor-store';
+import { Separator } from '@/components/ui/separator';
 interface ToolbarButtonProps {
     onClick?:  () => void;
     isActive?: boolean;
     icon:      LucideIcon;
+    label:     string;
 };
 
 const ToolbarButton = ({
     onClick,
     isActive,
     icon: Icon,
+    label,
 }: ToolbarButtonProps) => {
     return (
         <button 
             onClick={onClick}
-            title='Toolbox Button'
+            title= {label}
 
             // cn method from shadcn: include default classes and conditionally add more
             className={cn('text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neural-200/80', isActive && 'bg-neutral-200/80'
@@ -40,9 +43,35 @@ export const Toolbar = () => {
     }[][] = [
         [
             {
-                label: 'undo',
+                label: 'Undo',
                 icon: Undo2Icon,
                 onClick: () => editor?.chain().focus().undo().run(),
+            },
+            {
+                label: 'Redo',
+                icon: Redo2Icon,
+                onClick: () => editor?.chain().focus().redo().run(),
+            },
+            {
+                label: 'Print',
+                icon: PrinterIcon,
+                onClick: () => window.print(),
+            },
+            {
+                label: 'Spell Check',
+                icon: SpellCheckIcon,
+                isActive: editor?.view.dom.getAttribute('spellcheck') === 'true',
+                onClick: () => {
+                    const current = editor?.view.dom.getAttribute('spellcheck');
+                    editor?.view.dom.setAttribute('spellcheck', current === 'true' ? 'false' : 'true');
+                },
+            }
+        ],
+        [   {
+                label: 'Bold',
+                icon: BoldIcon,
+                isActive: editor?.isActive('bold'),
+                onClick: () => editor?.chain().focus().toggleBold().run(),
             },
         ],
     ];
@@ -50,6 +79,16 @@ export const Toolbar = () => {
     return ( 
         <div className='bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto'>
             {sections[0].map((item) => (
+                <ToolbarButton key={item.label} {...item}/>
+            ))}
+            <Separator orientation='vertical' className='h-6 bg-neutral-300'/>
+            {/* TODO: Font Family */}
+            <Separator orientation='vertical' className='h-6 bg-neutral-300'/>
+            {/* TODO: Heading */}
+            <Separator orientation='vertical' className='h-6 bg-neutral-300'/>
+            {/* TODO: Font Size */}
+            <Separator orientation='vertical' className='h-6 bg-neutral-300'/>
+            {sections[1].map((item) => (
                 <ToolbarButton key={item.label} {...item}/>
             ))}
         </div> 
