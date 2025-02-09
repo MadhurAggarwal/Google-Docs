@@ -9,6 +9,7 @@ Built Using [Next.js](https://nextjs.org) and [Shadcn UI](https://ui.shadcn.com/
 - nextjs: 15.0.3
 - shadcn: 2.1.6
 - tiptap: 2.10.2
+- zustand: 5.0.1
 
 ## Project Features
 ![image](https://github.com/user-attachments/assets/ec2b1ccd-4f98-4abe-b0b0-ac3f7ee0ee0f)
@@ -26,6 +27,7 @@ To download Packages, use:
 ```
 npm install --legacy-peer-deps
 ```
+Note that this project uses React-19, (and Nextjs 15) so --legacy-peer-deps need to be added whenever using npm i
 
 Then, run the development server:
 

@@ -25,4 +25,10 @@ use ctrl+shift+p and "developer: reload window"
 <br>
 .next folder can be deleted anytime
 <br>
+read interfaces & props (ToolBox Button)
+<br>
+read zustand.
 
+it is used for storing what?
+<br>
+read import "type Editor" in zutand (src->store->use-editor-store.ts)
