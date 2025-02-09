@@ -8,12 +8,18 @@ Built Using [Next.js](https://nextjs.org) and [Shadcn UI](https://ui.shadcn.com/
 - node:   20.15.1
 - nextjs: 15.0.3
 - shadcn: 2.1.6
+- tiptap: 2.10.2
 
 ## Project Features
+![image](https://github.com/user-attachments/assets/ec2b1ccd-4f98-4abe-b0b0-ac3f7ee0ee0f)
+
 ### Lists
 Type - to begin an unordered list.
 <br>
 Type 1. to begin an ordered list.
+
+### Checkmarks
+Type [] to begin a checkmark list
 
 ## Getting Started
 To download Packages, use:
