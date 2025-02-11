@@ -1,12 +1,37 @@
 "use client";
 
 import { cn } from '@/lib/utils';
-import { BoldIcon, ChevronDownIcon, ItalicIcon, ListTodoIcon, LucideIcon, MessageSquarePlusIcon, PrinterIcon, Redo2Icon, RemoveFormattingIcon, SmileIcon, SpellCheckIcon, UnderlineIcon, Undo2Icon } from 'lucide-react';
+import { BoldIcon, ChevronDownIcon, HighlighterIcon, ItalicIcon, ListTodoIcon, LucideIcon, MessageSquarePlusIcon, PrinterIcon, Redo2Icon, RemoveFormattingIcon, SmileIcon, SpellCheckIcon, UnderlineIcon, Undo2Icon } from 'lucide-react';
 import { useEditorStore } from '@/store/use-editor-store';
 import { Separator } from '@/components/ui/separator';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
 import { Level } from '@tiptap/extension-heading';
-import { ColorResult, CirclePicker } from 'react-color';
+import { ColorResult, SketchPicker } from 'react-color';
+// import { CirclePicker } from 'react-color';
+
+const HighlightColorButton = () => {
+    const {editor} = useEditorStore();
+    const value = editor?.getAttributes("highlight").color || "#000000";
+    const onChange = (color: ColorResult) => {
+        editor?.chain().focus().setHighlight({color: color.hex}).run();
+    };
+    
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <button 
+                    className='h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm'
+                    title='Heading'
+                >
+                    <HighlighterIcon className='size-4' style={{ color: value}}/>
+                </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className='p-1.5 z-[100]'>
+                <SketchPicker color={value} onChange={onChange} />
+            </DropdownMenuContent>
+        </DropdownMenu>
+    );
+};
 
 const TextColorButton = () => {
     const {editor} = useEditorStore();
@@ -16,11 +41,11 @@ const TextColorButton = () => {
         editor?.chain().focus().setColor(color.hex).run();
     };
 
-    const allColors = [
-        "#000000", "#808080", "#FFFFFF", "#795548", "#ff5722", "#f44336", "#e91e63", "#9c27b0", 
-        "#4B0082", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#40E0D0", 
-        "#4caf50", "#8bc34a", "#808000", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#607d8b", 
-      ];
+    // const allColors = [
+    //     "#000000", "#808080", "#FFFFFF", "#795548", "#ff5722", "#f44336", "#e91e63", "#9c27b0", 
+    //     "#4B0082", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#40E0D0", 
+    //     "#4caf50", "#8bc34a", "#808000", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#607d8b", 
+    //   ];
     
     return (
         <DropdownMenu>
@@ -33,8 +58,9 @@ const TextColorButton = () => {
                     <div className="h-0.5 w-full" style={{ backgroundColor : value}}></div>
                 </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className='p-1.5 z-[100] bg-white/60 shadow-md border border-gray-300 rounded-md backdrop-blur-md'>
-                <CirclePicker color={value} onChange={onChange} colors={ allColors }/>
+            <DropdownMenuContent className='p-1.5 z-[100]'>
+                {/* <CirclePicker color={value} onChange={onChange} colors={ allColors }/> */}
+                <SketchPicker color={value} onChange={onChange} />
             </DropdownMenuContent>
         </DropdownMenu>
     );
@@ -324,7 +350,7 @@ export const Toolbar = () => {
             ))}
 
             <TextColorButton />
-            {/* TODO: Highlight Color */}
+            <HighlightColorButton />
 
             <Separator orientation='vertical' className='h-6 bg-neutral-300'/>
             <EmojiPicker />
